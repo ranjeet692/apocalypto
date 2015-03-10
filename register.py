@@ -18,8 +18,8 @@ type=form.getvalue('type')
 institute=form.getvalue('institute')
 code = randint(100000000,9999999999)
 to = email
-gmail_user = 'neoscript.in@gmail.com'
-gmail_pwd = 'Rnh174@neoscript'
+gmail_user = 'abcd@gmail.com'
+gmail_pwd = 'abcd'
 smtpserver = smtplib.SMTP("smtp.gmail.com",587)
 smtpserver.ehlo()
 smtpserver.starttls()
