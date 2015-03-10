@@ -13,8 +13,8 @@ to = email
 query="select * from user where email_id='{0}'".format(str(email))
 connection.cursor.execute(query)
 data=connection.cursor.fetchone()
-gmail_user = 'neoscript.in@gmail.com'
-gmail_pwd = 'Rnh174@neoscript'
+gmail_user = 'abcd@gmail.com'
+gmail_pwd = 'abcd'
 smtpserver = smtplib.SMTP("smtp.gmail.com",587)
 smtpserver.ehlo()
 smtpserver.starttls()
