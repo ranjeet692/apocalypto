@@ -10,8 +10,8 @@ cid = data.getvalue("cid")
 email_id = data.getvalue("id")
 
 to = email_id
-gmail_user = 'neoscript.in@gmail.com'
-gmail_pwd = 'Rnh174@neoscript'
+gmail_user = 'abcd@gmail.com'
+gmail_pwd = 'abcd'
 
 #print cid, email_id
 if 'HTTP_COOKIE' in os.environ:
