@@ -1,0 +1,1 @@
+<ul><li><b><b>Week</b> <b>1</b></b></li></ul><blockquote>Compiling and Running your first C program<br>Learn about various Datatypes in C<br>Lean about Conditional Statements<br></blockquote><ul><li><b><b>Week</b> <b>2</b></b><br></li></ul><blockquote>Learn Loop techniques in C<br>Learn to Write functions and simplify your code<br>Scoping in C <br></blockquote>

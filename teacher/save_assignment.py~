@@ -1,0 +1,27 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+#Description: to save new record in assignment table
+#Query String Variables: POST method + cid(course_id)
+#flow: new_assignment.html -> save_assignment.py -> assignment.py
+#Created On: February 16, 2015
+#Last Modified: February 16, 2015
+#Author: Optimus Prime
+
+print "Content-Type: text/html\n\n"
+
+import cgi,cgitb,Cookie, os
+from connection import db, cursor
+cgitb.enable() 
+data = cgi.FieldStorage()
+course_id = data.getvalue('cid')
+title = data.getvalue('title')
+startdate = data.getvalue('startdate')
+enddate = data.getvalue('enddate')
+ptype = data.getvalue('type')
+
+print title
+print startdate
+print enddate
+print ptype
+
+

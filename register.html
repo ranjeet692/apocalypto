@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Registration</title>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://www.neoscript.in/css/bootstrap.min.css">
+	<link href="http://www.neoscript.in/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">&lt;NeoScript/&gt;</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            	     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                      <li>
+                        <a href="./">Home</a>
+                    </li>
+                 
+		     <li>
+                        <a href="acourse.py">Courses</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Register</a>
+                    </li>                   
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Log In <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="width:30%;">
+                            <li>
+                            <br/>
+								<form class="form-horizontal" role="form" action="index.py" method="POST">
+									<div class="form-group">
+										<div class="col-sm-13">
+											<input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">	
+										<div class="col-sm-13">
+											<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-10">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox"> Remember me
+												</label>
+											</div>	
+										</div>	
+									</div>	
+									<div class="form-group">		
+										<div class="col-sm-offset-2 col-sm-10">
+											<button type="submit" class="btn btn-default">Sign in</button>
+											
+										</div>
+									</div>
+								</form>
+                            </li>
+                       </ul>
+                    </li>
+                </ul>
+            </div>
+ 
+        </div> 
+        <!-- /.container -->
+    </nav>
+	<nav class="navbar navbar-inverse navbar-satic-top topnav" role="navigation">
+    </nav>
+		<div class="container">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form role="form" action="register.py" method="POST" onsubmit = "return validation()">
+						<div class="form-group">
+							<label for="name">Full Name</label>
+							<input type="text" class="form-control" name="name" id="fullname" placeholder="Full Name">
+						</div>
+						<div class="alert alert-danger" role="alert" id="fullname_alert">Full Name Required</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" class="form-control" name="email" id="email" placeholder="user@domain.com"></input>
+						</div>
+						<div class="alert alert-danger" role="alert" id="alert_email">This email id is already registered.</div>
+						<div class="form-group">
+							<label for="institute">Institute</label>
+							<input name="institute" class="form-control" id="institute" placeholder="Institute eg. University of Hyderabad"></input>	
+						</div>
+						<div class="alert alert-danger" role="alert" id="institute_alert">Institute Name Required</div>
+						<div class="form-group">
+							<label for="name">Select Type</label><br>
+							<select class="btn-group" id="type" role="group" name="type">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+							Dropdown
+							<span class="caret"></span></button>
+							<ul class="dropdown-menu" role="menu">
+							<option value='student'>Student</option>
+							<option value='teacher'>Teacher</option>
+							</ul>
+						</select>
+						</div>
+						<div class="form-group" id="r_no">
+							<label for="r_no">Registration Number</label>
+							<input class="form-control" name="r_no" id="regno" placeholder="Registration Number">
+						</div>
+						<div class="alert alert-danger" role="alert" id="regno_alert">Registration No Required</div>
+						<div class="form-group">
+							<label for="password">Create Password</label>
+							<input type="password" class="form-control" name="password" id="password" placeholder="**************">
+						</div>
+						<div class="alert alert-danger" role="alert" id="password_alert">Password Required</div>
+						<div class="form-group">
+							<label for="confirm_password">Confirm Password</label>
+							<input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="**************">
+						</div>
+						<div class="alert alert-danger" role="alert" id="alert">Password mismatch!!</div>
+						<div class="form-group">
+							<label for="contact">Contact Number</label>
+							<input type="text" class="form-control" name="contact" id="contact" placeholder="Phone Number">
+						</div>
+						<div class="alert alert-danger" role="alert" id="contact_alert">Phone No Required</div>
+						<button type="submit" class="btn btn-default">Submit</button>	
+					</form>
+				</div>
+			</div>	
+		</div>
+		<hr/>
+	<div class="container-fluid">
+		<center><p><span >&copy; 2015 NeoScript.in </span></p></center>
+	</div>
+		
+<script src="http://www.neoscript.in/js/jquery.js"></script>
+		<!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
+		<script src="http://www.neoscript.in/js/bootstrap.min.js"></script>
+		<script>
+			$(document).ready(function(e){
+				$("#fullname_alert").hide();
+				$("#alert").hide();
+				$("#alert_email").hide();
+				$("#institute_alert").hide();
+				$("#regno_alert").hide();
+				$("#password_alert").hide();
+				$("#contact_alert").hide();
+					
+			});
+			function validation()
+			{
+				if($("#fullname").val() == "")
+				{
+					$("#fullname_alert").show();
+					return false;
+				}
+				else
+				{
+					$("#fullname_alert").hide();
+				}
+				if($("#institute").val() == "")
+				{
+					$("#institute_alert").show();
+					return false;
+				}
+				else
+				{
+					$("#institute_alert").hide();
+				}
+				if($("#type").val() == "student" && $("#regno").val() == "")
+				{
+					$("#regno_alert").show();
+					return false;
+				}
+				else
+				{
+					$("#regno_alert").hide();
+				}
+				
+				if($("#password").val() == "" || $("#password").val() == null ) 
+				{
+					$("#password_alert").show();
+					return false;
+				}
+				else
+				{
+					$("#password_alert").hide();
+				}
+				if($("#contact").val() == "" || $("#contact").val() == null)
+				{
+					$("#contact_alert").show();
+					return false;
+				}
+				else
+				{
+					$("#contact_alert").hide();
+				}
+			}
+			$("#email").focusout(function(e){
+				$.ajax({
+					url:"ajax/email_check.py",
+					type:"POST",
+					data:{email:$("#email").val()},
+					success:function(response){
+						if(response == 1){
+							$("#alert_email").show();	
+						}
+						else
+						{
+							$("#alert_email").hide(); 
+						}
+					}
+				});
+			});
+			$("#type").change(function(e)
+			{
+				if($("#type").val()=="teacher")
+				{
+					$("#r_no").hide();
+				}
+				else
+				{
+					$("#r_no").show();
+				}
+			});
+
+			$("#confirm_password").focusout(function(e){
+				
+				if($("#password").val() == $("#confirm_password").val())
+				{
+					$("#alert").hide();
+
+				}
+				else
+				{
+					$("#alert").show();	
+				}
+			});	
+		</script>
+	</body>

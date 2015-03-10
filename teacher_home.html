@@ -1,0 +1,73 @@
+<!DOCTYPE>
+<html>
+	<head lang="en"> 
+		<title>{{ title }} | NeoScript</title>
+		<meta http-equiv="Cache-Control" Content="no-cache, no-store, must-revalidate ,max-age=0,s-maxage=0, proxy revalidate">
+		<meta http-equiv ="Pragma" Content="no-cache">
+		<meta http-equiv ="Expires" Content="0">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link href="http://www.neoscript.in/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    	<link href="http://www.neoscript.in/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        	<div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            	<div class="navbar-header">
+            	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            	        <span class="sr-only">Toggle navigation</span>
+            		        <span class="icon-bar"></span>
+            	        <span class="icon-bar"></span>
+            	        <span class="icon-bar"></span>
+            	    </button>
+            	    <a class="navbar-brand" href="./">&lt;NeoScript/&gt;</a>
+            	</div>
+            	<!-- Collect the nav links, forms, and other content for toggling -->
+            	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            	    <ul class="nav navbar-nav navbar-right">
+            	        
+            	        <li class="dropdown">
+            	            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{name}}<b class="caret"></b></a>
+            	            <ul class="dropdown-menu" style="width:30%;">
+				<li class="divider"></li>
+            	                <li>
+									<!--<form action="logout.py" method="POST">-->
+									<a href='logout.py'><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+									<!--</form>-->
+            	                </li>
+            	           </ul>
+            	        </li>
+            	    </ul>
+            	</div>
+            	<!-- /.navbar-collapse -->
+       	 </div>
+        <!-- /.container -->
+    	</nav>
+		<div class="container">
+			<div class="page-header">
+  				<h1>Courses <small></small></h1>
+  				{% for row in courses %}
+		 		<div class="row">
+    	        	<div class="col-md-5">
+                		<a href="teacher/home.py?cid={{row[0]}}">
+                	    	<img class="img-responsive img-hover" src="course/{{row[0]}}/course.jpeg" width="400" height="230" alt="">
+               	 		</a>
+            		</div>
+            		<div class="col-md-7">
+                		<h3>{{ row[1] }}</h3>
+                		<h4>January-April 2015</h4>
+                		<p></p>
+                		<a class="btn btn-primary" href="teacher/home.py?cid={{row[0]}}">Go to Class</i></a>
+            		</div>
+        		</div>
+        		<!-- /.row -->
+        		<hr>
+			{% endfor %}
+			</div>
+		</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    	<script src="http://www.neoscript.in/js/bootstrap.min.js"></script>
+	</body>
+</html>

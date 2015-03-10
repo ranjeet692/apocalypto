@@ -1,0 +1,4 @@
+14mcmc19.java and 14mcmc09.java: 100%
+14mcmc19.java and 14MCMC18.java: 100%
+14mcmc09.java and 14MCMC18.java: 100%
+14mcmc27.java and 14mcmc42.java: 90%

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>NeoScript | {{ title }}</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="http://www.neoscript.in/teacher/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+			
+    <!-- MetisMenu CSS -->
+    <link href="http://www.neoscript.in/teacher/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="http://www.neoscript.in/teacher/dist/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="http://www.neoscript.in/teacher/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="http://www.neoscript.in/teacher/bower_components/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://www.neoscript.in/teacher/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+     <!-- jQuery -->
+    <script src="http://www.neoscript.in/teacher/bower_components/jquery/dist/jquery.min.js"></script>
+    <style type="text/css" media="screen">
+			#code_editor{height:600px;}
+		</style>
+    <script>
+    	$.ajax({
+							type: "POST",
+							url: "header.py?cid={{cid}}",
+							success: function(response)
+							{
+								$("#header").html(response);
+								
+							},
+							error: function(response){
+								//alert(response);
+						}
+						});
+    </script>
+
+</head>
+<body>
+	
+    <div id="wrapper">
+
+        <!-- Navigation -->
+       
+        <p id="header"></p>
+        <div id="page-wrapper">
+		
+		<div class="panel panel-default">
+			<div class="panel-body">		
+			<form method="POST" action="store.py" >
+				<div class="form-group">			
+					Problem Statement <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=ps1","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Problem Statement</button></a>
+				</div>
+				<div class="form-group">			
+					Input Output <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=ps2","Ratting","width=850,height=570,0,status=0,"); ><button type="button" class="btn btn-primary">Input Output Specification</button></a>
+				</div>
+				<div class="form-group">			
+					Difficulty <input name="difficulty" class="form-control"></input>
+				</div>
+				<div class="form-group">			
+					Topic <input name="topic" class="form-control"></input>
+				</div>
+				<div class="form-group">			
+					Title <input name="title" class="form-control"></input>
+				</div>	
+	
+				<div class="form-group">			
+					Boundary Conditions <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=ps3","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Boundary</button></a>
+				</div>
+				<div class="form-group">
+					Input Test Case 1 <textarea name="tc1" class="form-control"></textarea>
+				</div>
+					<div class="form-group">
+					Input Test Case 2 <textarea name="tc2" class="form-control"></textarea>
+				</div>
+				<div class="form-group">
+					Input Test Case 3 <textarea name="tc3" class="form-control"></textarea>
+				</div>
+				<div class="form-group">
+					Input Test Case 4 <textarea name="tc4" class="form-control"></textarea>
+				</div>
+				<div class="form-group">
+					Input Test Case 5 <textarea name="tc5" class="form-control"></textarea>
+				</div>
+				<div class="form-group">
+					Output for Test Case 1 <textarea name="op1" class="form-control"></textarea>
+				</div>
+					<div class="form-group">
+					Output for Test Case 2 <textarea name="op2" class="form-control"></textarea>
+				</div>
+				<div class="form-group">
+					Output for Test Case 3 <textarea name="op3" class="form-control"></textarea>
+				</div>
+				<div class="form-group">
+					Output for Test Case 4 <textarea name="op4" class="form-control"></textarea>
+				</div>
+				<div class="form-group">
+					Output for Test Case 5 <textarea name="op5" class="form-control"></textarea>
+				</div>
+				<!--<div class="form-group">			
+					Input Test Case 1 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=tc1","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Test Case 1</button></a>
+				</div>
+				<div class="form-group">			
+					Input Test Case 2 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=tc2","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Test Case 2</button></a>
+			</div>
+				<div class="form-group">			
+					Input Test Case 3 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=tc3","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Test Case 3</button></a>
+				</div>
+				<div class="form-group">			
+					Input Test Case 4 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=tc4","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Test Case 4</button></a>
+				</div>
+				<div class="form-group">			
+					Input Test Case 5 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=tc5","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Test Case 5</button></a>
+				</div>
+				<div class="form-group">			
+					Output for Test Case 1 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=op1","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Output Case 1</button></a>
+				</div>	
+				<div class="form-group">			
+					 Output for Test Case 2 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=op2","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Output Case 2</button></a>
+				</div>
+				<div class="form-group">			
+					Output for Test Case 3  <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=op3","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Output Case 3</button></a>
+				</div>
+				<div class="form-group">			
+					Output for Test Case 4 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=op4","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Output Case 4</button></a>
+				</div>
+				<div class="form-group">			
+					Output for Test Case 5 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=op5","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Output Case 5</button></a>
+				</div>-->
+				<div class="form-group">			
+					<button type="submit" class="btn btn-primary">SUBMIT</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	 </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
+</body>
+</html>

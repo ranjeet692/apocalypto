@@ -1,0 +1,13 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+print "Cache-Control:no-store, no-cache, must-revalidate"
+print "Content-Type: text/html\n\n"
+
+from jinja2 import Template, Environment, FileSystemLoader
+from connection import cursor, db
+import cgi, cgitb,Cookie,os
+import footer
+data = cgi.FieldStorage()
+cid = data.getvalue("cid")
+title = "NeoScript | Result"

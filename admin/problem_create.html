@@ -1,0 +1,110 @@
+<!-- For problem upload by teacher or admin of the website in a Problem Database -->
+<!DOCTYPE>
+<html>
+	<head lang="en"> 
+		<title>{{ title }} | CodeMafia</title>
+		<meta http-equiv="Cache-Control" Content="no-cache, no-store, must-revalidate ,max-age=0,s-maxage=0, proxy revalidate">
+		<meta http-equiv ="Pragma" Content="no-cache">
+		<meta http-equiv ="Expires" Content="0">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link href="http://www.neoscript.in/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    	<link href="http://www.neoscript.in/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css" media="screen">
+			#code_editor{height:600px;}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        	<div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            	<div class="navbar-header">
+            	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            	        <span class="sr-only">Toggle navigation</span>
+            		        <span class="icon-bar"></span>
+            	        <span class="icon-bar"></span>
+            	        <span class="icon-bar"></span>
+            	    </button>
+            	    <a class="navbar-brand" href="index1.py">Code Mafia</a>
+            	</div>
+            	<!-- Collect the nav links, forms, and other content for toggling -->
+            	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            	    <ul class="nav navbar-nav navbar-right">
+            	        
+            	        <li class="dropdown">
+            	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{name}}<b class="caret"></b></a>
+            	            <ul class="dropdown-menu" style="width:30%;">
+            	                <li>
+									<form action="logout.py" method="POST">
+									<button type='submit' class="btn btn-default col-xs-12" >Logout</button>
+									</form>
+            	                </li>
+            	           </ul>
+            	        </li>
+            	    </ul>
+            	</div>
+            	<!-- /.navbar-collapse -->
+       	 </div>
+        <!-- /.container -->
+    	</nav>
+	<div class="container" class="input-group">
+		<div class="panel panel-default">
+			<div class="panel-body">		
+			<form method="POST" action="store.py" >
+				<div class="form-group">			
+					Problem Statement <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=ps1","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Problem Statement</button></a>
+				</div>
+				<div class="form-group">			
+					Input Output <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=ps2","Ratting","width=850,height=570,0,status=0,"); ><button type="button" class="btn btn-primary">Input Output Specification</button></a>
+				</div>
+				<div class="form-group">			
+					Difficulty <input name="difficulty" class="form-control"></input>
+				</div>
+				<div class="form-group">			
+					Topic <input name="topic" class="form-control"></input>
+				</div>	
+				<div class="form-group">			
+					Boundary Conditions <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=ps3","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Boundary</button></a>
+				</div>
+				<div class="form-group">			
+					Input Test Case 1 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=tc1","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Problem Statement</button></a>
+				</div>
+				<div class="form-group">			
+					Input Test Case 2 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=tc2","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Problem Statement</button></a>
+				</div>
+				<div class="form-group">			
+					Input Test Case 3 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=tc3","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Problem Statement</button></a>
+				</div>
+				<div class="form-group">			
+					Input Test Case 4 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=tc4","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Problem Statement</button></a>
+				</div>
+				<div class="form-group">			
+					Input Test Case 5 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=tc5","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Problem Statement</button></a>
+				</div>
+				<div class="form-group">			
+					Output for Test Case 1 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=op1","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Problem Statement</button></a>
+				</div>	
+				<div class="form-group">			
+					 Output for Test Case 2 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=op2","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Problem Statement</button></a>
+				</div>
+				<div class="form-group">			
+					Output for Test Case 3  <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=op3","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Problem Statement</button></a>
+				</div>
+				<div class="form-group">			
+					Output for Test Case 4 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=op4","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Problem Statement</button></a>
+				</div>
+				<div class="form-group">			
+					Output for Test Case 4 <a href="javascript:void(0);" NAME="Document Editor" title="Edit content of documents in new window" onClick=window.open("problem_editor.py?edit=op4","Ratting","width=850,height=570,0,status=0,");><button type="button" class="btn btn-primary">Problem Statement</button></a>
+				</div>
+				<div class="form-group">			
+					<button type="submit" class="btn btn-primary">SUBMIT</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    	<script src="http://www.neoscript.in/admin/js/bootstrap.min.js"></script>
+</body>
+</html>

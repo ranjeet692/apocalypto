@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="Cache-Control" Content="no-cache, no-store, must-revalidate ,max-age=0,s-maxage=0, proxy revalidate">
+		<meta http-equiv ="Pragma" Content="no-cache">
+		<meta http-equiv ="Expires" Content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | NeoScript</title>
+    <link href="http://www.neoscript.in/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://www.neoscript.in/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+  	<script src="http://www.neoscript.in/js/cookie-js/jquery.cookie.js"></script>
+		<script>
+			if($.cookie("uid")){
+				//alert("cookie is not set");
+				window.location="<%=BaseURL %>" + "index1.py"
+			}
+			else
+			{
+				window.location="<%=BaseURL %>" + "index1.py"
+			}
+	</script>
+	  <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">&lt;NeoScript/&gt;</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{name}}<b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="width:30%;">
+                            	<li class="divider"></li>
+				<li>
+								<!--<form action="logout.py" method="POST">-->
+								<a href='logout.py'><i class= "fa fa-fw fa-power-off"></i>Logout</a>
+								<!--</form>-->
+                            </li>
+                       </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+<br/>
+<div class='course_page'>	
+	<div class="container">
+		<ul class="nav nav-pills nav-justified" role="tablist">
+		    <li role="presentation" class="active"><a href="#course_page" aria-controls="home" role="tab" data-toggle="tab">Enrolled Courses</a></li>
+		    <li role="presentation" ><a href="#acourse" aria-controls="acourse" role="tab" data-toggle="tab">Available Courses</a></li>
+		    <li role="presentation"><a href="#p_problem" aria-controls="practice" role="tab" data-toggle="tab">Practise Problems</a></li>
+		</ul>
+	</div>
+	<hr/>
+	<br/>
+	<div class="tab-content" id="content">
+		<div class="tab-pane fade in active" id="course_page">
+			<div class="container">
+			<br/>
+			{% for row in enrolled %}
+		 		<div class="row">
+    	        	<div class="col-md-5">
+                		<a href="course.py?cid={{ row[1]}}">
+                	    	<img class="img-responsive img-hover" src="course/{{row[1]}}/course.jpeg" width="400" height="230" alt="">
+               	 		</a>
+            		</div>
+            		<div class="col-md-7">
+                		<h3> {{row[2]}} </h3>
+                	<!--	<h4>January-April 2015</h4>-->
+                		<p></p>
+                		<a class="btn btn-primary" href="course.py?cid={{row[1]}}">Go to Class</i></a>
+            		</div>
+        		</div>
+        <!-- /.row -->
+        		<hr>
+			{% endfor %}
+			</div>
+		</div>
+		<div class="tab-pane fade" id="acourse">
+			<div class="container">
+			<br/>
+			{% for row in all_courses %}
+		 		<div class="row">
+    	        		<div class="col-md-5">
+                		<a href="course_intro.py?cid={{ row[0]}}&page=index1.py#acourse">
+                	    	<img class="img-responsive img-hover" src="course/{{row[0]}}/course.jpeg" width="400" height="230" alt="">
+               	 		</a>
+            		</div>
+            		<div class="col-md-7">
+                		<h3> {{row[1]}} </h3>
+                		
+                		<p></p>
+                		<a class="btn btn-primary" href="course_intro.py?cid={{row[0]}}&page=index1.py#acourse">Go to Course</i></a>
+            		</div>
+        		</div>
+        <!-- /.row -->
+        		<hr>
+			{% endfor %}
+			</div>
+		<!--	{% for row in all_courses %}
+				<div class="container">      
+					<div class="jumbotron">
+  					<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img class="img-responsive img-hover" src="course/{{row[0]}}/course.jpeg" width="400" height="230">
+      <div class="caption">
+        <p>{{row[1]}}</p>
+        <p><a href="course_intro.py?cid={{row[0]}}&page=index1.py#acourse" class="btn btn-primary" role="button">Go To Course</a> </p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+</div>
+</div>
+{% endfor %}-->
+</div>
+<br/>
+<!-- Code for practise page -->
+<div class="tab-pane fade" id="p_problem">
+<div class="container">
+<h4>Attempted Problems</h4>
+<a href="#" class="list-group-item active"><span class="badge">Score</span>Problem Title</a>
+{% for row in s_problem %}
+  <a href="problem_code.py?ppid={{row[0]}}" class="list-group-item"><span class="badge">{{row[2]}}</span>{{row[1]}}</a>
+{% endfor %}
+</div>
+<br><br>
+<div class="container">
+<h4>Unattempted Problems</h4>
+<a href="#" class="list-group-item active"><span class="badge">Level</span>Problem Title</a>
+{% for row in p_problem %}
+  <a href="problem_code.py?ppid={{row[0]}}" class="list-group-item"><span class="badge">{{row[2]}}</span>{{row[1]}}</a>
+{% endfor %}
+</div>
+</div>
+</div>
+		<footer>{{ footer }}</footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://www.neoscript.in/js/bootstrap.min.js"></script>
+	<script>
+
+			window.onbeforeload = function(e){
+				alert("");
+			}
+			
+	
+		$(document).ready(function(event) {
+    	$('ul.nav.nav-tabs a:first').tab('show'); // Select first tab
+    	$('ul.nav.nav-tabs a[href="'+ window.location.hash+ '"]').tab('show'); // Select tab by name if provided in location hash
+    	$('ul.nav.nav-tabs a[data-toggle="tab"]').on('shown', function (event) {    // Update the location hash to current tab
+    	    window.location.hash= event.target.hash;
+   		 })
+	});
+	</script>		
+  </body>
+</html>

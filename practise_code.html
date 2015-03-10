@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }} | NeoScript </title>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://www.neoscript.in/css/bootstrap.min.css">
+		<link href="http://www.neoscript.in/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<style type="text/css" media="screen">
+			#code_editor{
+				min-height:300px;
+			}
+		</style>
+	</head>
+	<body>
+		 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">&lt;NeoScript/&gt;</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{name}}<b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="width:30%;">
+				<li class="divider"></li>
+                            <li>
+								<!--<form action="logout.py" method="POST">-->
+								<a href='logout.py'><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+								<!--</form>-->
+                            </li>
+                       </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container">
+    	<ol class="breadcrumb">
+				<li><a href="index1.py">HOME</a></li>
+				<li class="active">{{ title }}</li>
+		</ol>
+		<div class="container-fluid">
+			<h2>{{ title }}</h2>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p>{{ description }}</p>
+				</div>
+			</div>
+			<form enctype="multipart/form-data" action="submission_code.py" method="post" id="submitform">
+			<div class="panel panel-default">
+				<div class="panel-heading">Solution</div>
+				<div class="panel-body">
+					<input type="file" name="file" id="file"/>
+					<select name="language" id="language">
+						<option value="java">Java</option>
+						<option value="c">C</option>
+						
+					</select>	
+					<input type="submit" name="submit" value="Submit"/>
+				</div>
+			</div>
+			</form>
+			<center><p id="loading"><img src="loading_bar.gif" width="150" height="25"/></p></center>
+			<div class="alert alert-danger" role="alert" id="alert">
+  						<strong>Error occured while processing. please try again.</strong>
+			</div>
+			<pre id="code_editor"></pre>
+			<div class="panel panel-default" id="testcase">
+ 				 <!-- Default panel contents -->
+  				
+			</div>
+			<div class="panel panel-default" id="result"> 
+ 				 <!-- Default panel contents -->
+  				<div class="panel-heading">Result</div>
+				<div class="panel-body">
+				</div>
+			</div>		
+		</div>
+		<!-- container -->
+		<footer> {{ footer }}</footer>
+		<!-- Optional: Include the jQuery library -->
+		<script src="http://www.neoscript.in/js/jquery.js"></script>
+		<!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
+		<script src="http://www.neoscript.in/js/bootstrap.min.js"></script>
+		<script src="http://www.neoscript.in/ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var editor = ace.edit("code_editor");
+			$( document ).ready(function() {
+					$("#loading").hide();
+					$("#testcase").hide();
+					$("#result").hide();
+					$("#alert").hide();
+					$("#code_editor").hide();	
+					editor.setTheme("http://www.neoscript.in/ace/theme/chrome");
+					editor.getSession().setMode("http://www.neoscript.in/ace/mode/java");
+			});
+				
+ 
+			// Catch the form submit and upload the files
+			$("#submitform").submit(function(e) {
+				
+				$("#loading").show();
+				e.preventDefault();
+				var form_data = new FormData($("#submitform")[0]);
+				//alert($("#submitform")[1])
+ 				$.ajax({
+					url: 'ajax/submission_code.py?ppid='+{{ppid}}+'&l='+$("#language").val(),
+					type: 'POST',
+					data: form_data,
+        			contentType: false,
+        			cache: false,
+        			processData: false,
+        			async: false,
+					success: function(response)
+					{
+						
+						$("#loading").hide();
+						$("#testcase").html(response);
+						$("#testcase").show();
+						$.ajax({
+							url: 'ajax/code_editor.py?ppid='+{{ppid}}+'&file='+$("#file").val(),
+							type:'GET',
+							success:function(response){
+								$("#code_editor").show();
+								editor.getSession().setValue(response);
+								 window.scrollTo(0, 800);
+							},
+							error:function(response){
+								
+							}
+						});
+						 console.log('Success!');
+					},
+					error:function(response){
+						$("#alert").show();						
+					},
+					
+				});
+				$("#loading").hide();
+					return false;
+			}); 
+			
+		</script>
+	</body>
+</html>	

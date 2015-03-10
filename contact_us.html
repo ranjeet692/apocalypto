@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }} | Code Mafia</title>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://www.neoscript.in/css/bootstrap.min.css">
+		<link href="http://www.neoscript.in/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+	 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">&lt;NeoScript/&gt;</a>
+
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="./">Home</a>
+                    </li>
+                 
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{name}}<b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="width:30%;">
+                            <li class="divider"></li>
+				<li>
+								<!--<form action="logout.py" method="POST">-->
+								<a href='logout.py'><i class="fa fa-fw fa-power-off"></i>Log Out</a>
+								<!--</form>-->
+                            </li>
+                       </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>	
+	<div class="container">
+		<form role="form" action="query.py" method="POST">
+		<div class="form-group" id="email">
+							<label for="email">Email_Id</label>
+							<input class="form-control" name="email" id="email" type="email" 		placeholder="name@email.com">
+		</div>		
+		<div class="form-group" id="query">
+							<label for="r_no">Enter your Query Here</label>
+							<input class="form-control" name="query" id="query" placeholder="Query">
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+		</form>	
+	<br/><br/><br/><br/><br/>
+	<h1 align="center">Or</h1><h4 align="center"> Mails us at  :: <strong>neoscript.in@gmail.com</strong></h4>	
+	</div>
+	<footer>{{ footer }}</footer>	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://www.neoscript.in/js/bootstrap.min.js"></script>
+	</body>

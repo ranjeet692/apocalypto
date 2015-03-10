@@ -1,0 +1,15 @@
+<br><br>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Plagiarism</div>
+  <div class="panel-body">
+ <!-- Table -->
+  <table class="table">
+   <tr><th>Assignment Title</th><th>Problem Title</th><th>Date</th></tr>
+   <tr><td>Tuesday Lab Coding</td><td><a href="http://www.neoscript.in/plagiarism/3/2/2.txt">Imaginary Number</td><td>20/01/15</a></td></tr>
+   <tr><td>Thursday Lab Coding</td><td><a href="http://www.neoscript.in/plagiarism/4/4/4.txt">Cartesian Number</td><td>22/01/15</a></td></tr>
+   <tr><td>Tuesday Lab Coding(2)</td><td><a href="http://www.neoscript.in/plagiarism/7/5/5.txt">Strings</td><td>03/02/15</a></td></tr>
+   <tr><td>Thursday Lab Coding(2)</td><td><a href="http://www.neoscript.in/plagiarism/8/6/6.txt">Strings(II)</td><td>05/02/15</a></td></tr>
+  </table>
+</div>
+</div>

@@ -1,0 +1,211 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>NeoScript | Submission </title>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Bootstrap Core CSS -->
+    	<link href="http://www.neoscript.in/teacher/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+			
+    	<!-- MetisMenu CSS -->
+    	<link href="http://www.neoscript.in/teacher/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    	<!-- Timeline CSS -->
+    	<link href="http://www.neoscript.in/teacher/dist/css/timeline.css" rel="stylesheet">
+
+    	<!-- Custom CSS -->	
+    	<link href="http://www.neoscript.in/teacher/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    	<!-- Morris Charts CSS -->
+    	<link href="http://www.neoscript.in/teacher/bower_components/morrisjs/morris.css" rel="stylesheet">
+
+    	<!-- Custom Fonts -->
+    	<link href="http://www.neoscript.in/teacher/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<script src="http://www.neoscript.in/teacher/bower_components/jquery/dist/jquery.min.js"></script>
+    	<script>
+    			$.ajax({
+							type: "POST",
+							url: "header.py?cid={{cid}}",
+							success: function(response)
+							{
+								$("#header").html(response);
+								
+							},
+							error: function(response){
+								//alert(response);
+						}
+					});
+    	</script>
+    	<style type="text/css" media="screen">
+			#code_editor{height:600px;}
+		</style>
+	</head>
+	<body>
+		<!-- wrapper -->
+		<div id="wrapper">
+			<!--navbar-->
+			<p id="header"></p>
+			<!--navbar end-->
+			<!--page wrapper-->
+			<div id="page-wrapper">
+				<!--<div class="row">
+            	    <div class="col-lg-12">
+            	        <h1 class="page-header">Assignment</h1>
+            	    </div>
+            	    <!-- .col-lg-12 >
+            	</div>-->
+            	<div class="row">
+					<div class="col-md-3">
+						<select id="assignment_select" class="form-control input-sm">
+							<option value="-1">assignment</option>
+								{% for row in assignment %}
+							<option value="{{ row[0] }}">{{ row[1] }}</option>
+								{% endfor %}
+						</select>
+					</div>
+					<div class="col-md-4">
+						<select id="problem_select" class="form-control input-sm">
+							<option value="select a problem">Select a problem</option>					
+						</select>
+					</div>
+					<div class="col-md-2">
+						<p id="download"></p>
+					</div>
+					<div class="col-md-3">
+						<p id="mail"></p>
+					</div>
+				</div>
+				<hr/>
+				<div class="row">
+					<div class="col-md-9">
+						<pre id="code_editor"></pre>
+						<hr/>
+						<form action="/" method="POST" id="feedbackForm">
+							<div class="panel panel-default feedback_panel">
+								<div class="panel-body">
+									<strong>Feedback </strong>
+								</div>
+								<div class="panel-footer">
+									<textarea class="form-control" name="feed" id="feed" rows="3" placeholder="first select assignment, problem and student then enter text here and press submit button once and wait for message of successful operation"></textarea>
+									<br/>
+									 <button type="submit" class="btn btn-warning">Submit</button>
+
+								</div>
+							</div>	
+							
+						</form>
+					</div>
+					<div class="col-md-3">
+						<div class="list-group" id="submission_list">   
+                	</div>
+				</div>	
+					
+			</div>	
+        	<!-- end page-wrapper-->
+        	
+        </div>
+        <!--wrapper-->
+         <!-- Bootstrap Core JavaScript -->
+    	<script src="http://www.neoscript.in/teacher/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    	<!-- Metis Menu Plugin JavaScript -->
+    	<script src="http://www.neoscript.in/teacher/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    	<!-- Morris Charts JavaScript -->	
+    	<script src="http://www.neoscript.in/teacher/bower_components/raphael/raphael-min.js"></script>
+    	<script src="http://www.neoscript.in/teacher/bower_components/morrisjs/morris.min.js"></script>
+    	<script src="http://www.neoscript.in/teacher/js/morris-data.js"></script>
+
+	    <!-- Custom Theme JavaScript -->	
+    	<script src="http://www.neoscript.in/teacher/dist/js/sb-admin-2.js"></script>
+    	<!-- AJAX code-->
+		<script src="http://www.neoscript.in/ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var email = ''
+			var editor = ace.edit("code_editor");
+			$( document ).ready(function() {	
+					editor.setTheme("http://www.neoscript.in/ace/theme/chrome");
+					editor.getSession().setMode("http://www.neoscript.in/ace/mode/java");
+					$.ajax({
+					type: 'POST',
+					url: "course/"+{{cid}}+"/timeline.txt",
+					dataType: "text",
+					success: function(response){
+						output = response;
+						$("#timeline").html(output);
+						}
+					}).done(function(data){
+						console.log(data);
+						
+				});
+			});	
+				$("#assignment_select").change(function(e){
+					//alert($("#assignment_select").val());
+					$.ajax({
+					type: 'POST',
+					url: "ajax/problem_list.py?aid="+$("#assignment_select").val(),
+					dataType: "text",
+					success: function(response){
+						$("#problem_select").empty();
+						$("#problem_select").append("<option value='-1'>Select a problem</option>");
+						$("#problem_select").append(response);
+						}
+					}).done(function(data){
+						console.log(data);
+						
+				});
+			});
+			$("#problem_select").change(function(e){
+					//alert($("#assignment_select").val());
+					$.ajax({
+					type: 'POST',
+					url: "ajax/submission_list.py?pid="+$("#problem_select").val()+"&aid="+$("#assignment_select").val(),
+					dataType: "text",
+					success: function(response){
+						$("#submission_list").empty();
+						$("#submission_list").append(response);
+						}
+					}).done(function(data){
+						console.log(data);
+						
+				});
+			});
+			function load_code(eid, fname, name)
+			{
+				email = eid
+				//alert(eid +",  "+ fname);
+				$.ajax({
+							url: 'ajax/code_editor_teacher.py?pid='+$("#problem_select").val()+'&aid='+$("#assignment_select").val()+'&file='+fname+'&email_id='+eid,
+							type:'GET',
+							success:function(response){
+								$("#code_editor").show();
+								editor.getSession().setValue(response);
+								 $("#download").html('<a href="http://www.neoscript.in/submission/'+eid+'/'+$("#assignment_select").val()+'/'+fname+'">Download File</a>');
+								 $("#mail").html('<strong style="color:#337ab7;">'+name+'</strong>');
+							},
+							error:function(response){
+								
+							}
+						});
+			}
+			$("#feedbackForm").submit(function() {
+					a = document.getElementById('assignment_select').value;
+					b = document.getElementById('problem_select').value;
+					c = email;
+					$.ajax({
+						type: "POST",
+						url: "ajax/problem_feedback.py?aid="+a+"&pid="+b+"&id="+c+"",
+						data: $("#feedbackForm").serialize(), // serializes the form's elements.
+						success: function(response)
+						{
+							alert(response)
+							//$(".feedback_panel").hide(); 
+							//$("#feedbackBox").html("Thanks for your feedback!!")
+						}
+					});
+					return false; // avoid to execute the actual submit of the form.
+			});
+		</script>
+	</body>
+</html>	        	
+            

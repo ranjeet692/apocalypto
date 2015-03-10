@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }} | NeoScript</title>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://www.neoscript.in/css/bootstrap.min.css">
+		<link href="http://www.neoscript.in/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+	<!--navigation -->
+	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+             	<a class="navbar-brand" href="./">&lt;NeoScript/&gt;</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                     <li>
+                        <a href="./">Home</a>
+                    </li>
+                 
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{name}}<b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="width:30%;">
+			    <li class="divider"></li>	
+                            <li>
+							<!--<form action="logout.py" method="POST">-->
+								<a href="logout.py" ><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+								<!--</form>-->
+                            </li>
+                       </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+		<div class="container">
+			<div role="tabpanel">
+				<!-- Nav tabs -->
+				<ul class="nav nav-pills nav-justified" role="tablist">
+					<li role="presentation" class="active"><a href="#introduction" aria-controls="introduction" role="tab" data-toggle="tab">Introduction</a></li>
+					<li role="presentation"><a href="#syllabus" aria-controls="syllabus" role="tab" data-toggle="tab">Syllabus</a></li>
+					<li role="presentation"><a href="#documents" aria-controls="document" role="tab" data-toggle="tab">Documents</a></li>
+					<li role="presentation"><a href="#assignment" aria-controls="assignment" role="tab" data-toggle="tab">Assignment</a></li>
+					<!--<li role="presentation"><a href="#test" aria-controls="test" role="tab" data-toggle="tab">Test</a></li>-->
+					<!--<li role="presentation"><a href="#forum" aria-controls="forum" role="tab" data-toggle="tab">Forum</a></li>-->
+					<!--<li role="presentation"><a href="#remarks" aria-controls="remarks" role="tab" data-toggle="tab">Remarks</a></li>-->
+					<li role="presentation"><a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback</a></li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade in active" id="introduction">
+						<h2>Introduction</h2>
+						<hr/>
+						<p id="description"></p>
+						<h4>Importent Notice</h4>	
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="syllabus">
+						<h3>Timeline</h3>
+						<hr/>
+						<p id="timeline">Timeline</p>
+						<hr/>
+						<h3>Syllabus</h3>
+						<hr/>
+						<p id="syllabus_details">Syllabus</p>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="documents">
+						<h2>Documents</h2>
+						<hr/>
+						<p id="useful_links"></p>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="assignment">
+						<h3>Submitted Assignments</h3>
+						<hr/>						
+						<p id="submittedassignmentlist" >
+						</p>							
+						<h3>Assignment</h3>
+						<hr/>						
+						<p id="assignmentlist" >
+						
+						</p>
+						
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="test">
+						<h2>Test</h2>
+						<hr/>
+						<div class="panel panel-info">
+							<div class="panel-heading">Test #</div>
+							<div class="panel-body">
+								<h4>Problem</h4>
+								<hr/>
+								<h4>Date</h4>
+								<hr/>
+								<h4>Result</h4> 
+								<hr/>
+							</div>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="forum">
+						<h2>Forum</h2>
+						<hr/>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="remarks">
+						<h2>Remarks/Student</h2>
+						<hr/>
+						<h3>List of student for teacher</h3>
+						<h3>List of score/remarks for every test/assignment</h3>
+					</div>	
+					<!-- Feedback Page -->	
+					<div role="tabpanel" class="tab-pane fade" id="feedback">
+						<h2>Feedback</h2>
+						<hr/>
+						<center><h3 id="feedbackBox"></h3></center>
+						<form action="/" method="POST" id="feedbackForm">
+							<div class="panel panel-default feedback_panel">
+								<div class="panel-body">
+									<strong>Comment </strong>
+								</div>
+								<div class="panel-footer">
+									<textarea class="form-control" name="commentbox" rows="3"></textarea>
+								</div>
+							</div>	
+							<div class="panel panel-default feedback_panel">
+								<div class="panel-body">
+									<button type="submit" class="btn btn-warning">Submit</button>
+								</div>
+							</div>
+							<input type="hidden" name="course_id" value="{{ cid }}"/>
+						</form>
+					</div>
+				</div>
+				<!--tab-panes-->
+			</div>
+			<!--tab-panels-->
+		</div>
+		<footer>{{ footer }}</footer>
+		<!--container-->
+		<!-- Optional: Include the jQuery library -->
+		<script src="http://www.neoscript.in/js/jquery.js"></script>
+		<!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
+		<script src="http://www.neoscript.in/js/bootstrap.min.js"></script>
+		<!-- AJAX code-->
+		<script>
+			
+			
+			function code_submit(aid)
+			{
+				$.ajax({
+					type:'POST',
+					url:'result.py',
+					data:( {cid:{{cid}},aid:aid} ),
+					success: function(response){
+						v='#final_result'+aid;
+						$(v).html(response)
+						},
+						
+
+					});
+			}	
+			
+
+			$.ajax({
+					type: 'POST',
+					url: "course/"+{{cid}}+"/notification.txt",
+					dataType: "text",
+					success: function(response){
+						output = response;
+						$("#description").html(output);
+						}
+					}).done(function(data){
+						console.log(data);
+						
+				});
+			$.ajax({
+					type: 'POST',
+					url: "course/"+{{cid}}+"/timeline.txt",
+					dataType: "text",
+					success: function(response){
+						output = response;
+						$("#timeline").html(output);
+						}
+					}).done(function(data){
+						console.log(data);
+						
+				});
+				$.ajax({
+					type: 'POST',
+					url: "course/"+{{cid}}+"/syllabus.txt",
+					dataType: "text",
+					success: function(response){
+						output = response;
+						$("#syllabus_details").html(output);
+				
+		}
+					}).done(function(data){
+						console.log(data);
+						
+				});
+				$.ajax({
+					type: 'POST',
+					url: "course/"+{{cid}}+"/links.txt",
+					dataType: "text",
+					success: function(response){
+						output = response;
+						$("#useful_links").html(output);
+						}
+					}).done(function(data){
+						console.log(data);
+						
+				});
+				$.ajax({
+					type: 'POST',
+					url: "ajax/submitted.py",
+					data: ({course_id:{{cid}}}),
+					dataType: "text",
+					success: function(response){
+						output = response;
+						$("#submittedassignmentlist").html(output);
+						}
+					}).done(function(data){
+						console.log(data);
+						
+				});
+
+				$.ajax({
+					type: 'POST',
+					url: "ajax/assignmentlist.py",
+					data: ({course_id:{{cid}}}), // passing classid
+					dataType: "text",
+					success: function(response){
+						output = response;
+						$("#assignmentlist").html(output);
+						var today = new Date();
+						var mon = today.getMonth();
+						var day = today.getDate();
+						var year = today.getFullYear();
+						var date = new Date(year, mon, day);
+						var due = new Date($("#due").text())
+						//alert($("#due").text());
+						if (due < date)
+						{
+							$("#code_submit").attr('disabled','disabled');
+							$("#due").html($("#due").text() + "&nbsp; <span style='color:red;'>Due Date Over</span>");
+						}
+						else
+						{
+							$("#code_submit").removeAttr('disabled');
+						}
+						}
+					}).done(function(data){
+						console.log(data);
+						
+				});
+				$("#feedbackForm").submit(function() {
+					$.ajax({
+						type: "POST",
+						url: "ajax/feedback_ajax.py",
+						data: $("#feedbackForm").serialize(), // serializes the form's elements.
+						success: function(response)
+						{
+							//alert(response)
+							$(".feedback_panel").hide(); 
+							$("#feedbackBox").html("Thanks for your feedback!!")
+						}
+					});
+					return false; // avoid to execute the actual submit of the form.
+				});
+				
+		</script>
+	</body>
+</html>	

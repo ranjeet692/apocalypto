@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }} | NeoScript</title>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="htpp://www.neoscript.in/">&lt;NeoScript/&gt;</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{name}}<b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="width:30%;">
+                            <li>
+								<form action="logout.py" method="POST">
+								<button type='submit' class="btn btn-default col-xs-12" >Logout</button>
+								</form>
+                            </li>
+                       </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="course.py?cid={{ cid }}#assignment">Assignment</a></li>
+				<li class="active">{{ title }}</li>
+			</ol>
+			<div class="page-header">
+				<h1>{{ page_header }}</h1>
+			</div>
+			<center><div id="message"></div></center>
+			<form id="mcqform" action="" method="POST">
+				{{ questions }}
+				<div class="panel panel-default feedback_panel">
+					<div class="panel-body">
+						<button type="submit" class="btn btn-warning">Submit</button>
+					</div>
+				</div>
+			</form>		
+		</div>
+		<footer>{{ footer }}</footer>
+		<script src="./js/jquery.js"></script>
+		<!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
+		<script src="./js/bootstrap.min.js"></script>
+		<script src="./js/bootbox.min.js"></script>
+		<script>
+			$("#mcqform").submit(function(e) {
+				        e.preventDefault();
+				        bootbox.confirm("<b>Are you sure?</b> <br><br>if this is your first attempt then later you'll not able to change your answers.", function(result) {
+							if(result) {
+								$.ajax({
+									type: 'POST',
+									url: 'ajax/submission_mcq.py?aid='+{{aid}}+'&cid='+{{cid}},
+									data: $("#mcqform").serialize(),
+									success: function(response){
+									console.log("success!!");
+									$("#mcqform").hide();
+									$("#message").html(response);
+									},
+									error: function(response){
+									console.log(response);
+									}
+								});
+							
+							}
+						}); 
+				
+			});
+		</script>
+	</body>
+</html>	

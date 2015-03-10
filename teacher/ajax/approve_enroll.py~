@@ -1,0 +1,29 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+print "Content-Type: text/html\n\n"
+from connection import cursor, db
+import cgi, cgitb,Cookie,os
+
+data = cgi.FieldStorage()
+cid = data.getvalue("cid")
+email_id = data.getvalue("id")
+
+#print cid, email_id
+if 'HTTP_COOKIE' in os.environ:
+	cookie_string=os.environ.get('HTTP_COOKIE')
+	c=Cookie.SimpleCookie()
+	c.load(cookie_string)
+
+
+if c['type'].value == "teacher":
+	sql = "DELETE FROM enroll_request WHERE course_id = {0} and email_id = {1}".format(cid,str(email_id))
+	cursor.execute(sql)
+	db.commit()
+	sql = "INSERT INTO enrolled(course_id,email) VALUES({0}, '{1}')".format(cid,str(email_id))
+	cursor.execute(sql)
+	db.commit()
+	
+	print "Approved"
+else:
+	print "Error"

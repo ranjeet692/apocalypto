@@ -1,0 +1,7 @@
+14mcmc19.java and 14MCMC18.java: 100%
+14MCMC06.java and 14MCPC01.java: 25%
+14MCMC06.java and 12mcmc08.java: 33%
+14MCMC06.java and 14MCMC04.java: 33%
+14MCPC01.java and 12mcmc08.java: 66%
+14MCPC01.java and 14MCMC04.java: 25%
+12mcmc08.java and 14MCMC04.java: 33%

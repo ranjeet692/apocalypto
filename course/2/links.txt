@@ -1,0 +1,1 @@
+<b><b>Go</b> <b>through</b> <b>this</b> <b>link</b> <b>to</b> <b>understand</b> <b>how</b> <b>to</b> <b>compile</b> <b>your</b> <b>programs using</b> <b>GCC</b><br></b><br>https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html<br><br><br>

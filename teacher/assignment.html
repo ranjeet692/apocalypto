@@ -1,0 +1,93 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>NeoScript | Assignment </title>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Bootstrap Core CSS -->
+    	<link href="http://www.neoscript.in/teacher/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+			
+    	<!-- MetisMenu CSS -->
+    	<link href="http://www.neoscript.in/teacher/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    	<!-- Timeline CSS -->
+    	<link href="http://www.neoscript.in/teacher/dist/css/timeline.css" rel="stylesheet">
+
+    	<!-- Custom CSS -->	
+    	<link href="http://www.neoscript.in/teacher/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    	<!-- Morris Charts CSS -->
+    	<link href="http://www.neoscript.in/teacher/bower_components/morrisjs/morris.css" rel="stylesheet">
+
+    	<!-- Custom Fonts -->
+    	<link href="http://www.neoscript.in/teacher/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<script src="http://www.neoscript.in/teacher/bower_components/jquery/dist/jquery.min.js"></script>
+    	<script>
+    			$.ajax({
+							type: "POST",
+							url: "header.py?cid={{cid}}",
+							success: function(response)
+							{
+								$("#header").html(response);
+								
+							},
+							error: function(response){
+								//alert(response);
+						}
+					});
+    </script>
+	</head>
+	<body>
+		<!-- wrapper -->
+		<div id="wrapper">
+		<!--navbar-->
+		<p id="header"></p>
+		<!--navbar end-->
+		<!--page wrapper-->
+		 <div id="page-wrapper">
+			<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Assignment</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+			<!-- table -->
+			<a href="http://www.neoscript.in/teacher/new_assignment.py?cid={{cid}}&option=new" role="button" class="btn btn-info btn-block col-md-6">Create New Assignment</a>
+			<br/>
+			<hr/>
+			<table class="table table-bordered table-striped">
+  				<tbody>
+  					<tr>
+  						<th>#</th><th>Title</th><th>Problems</th><th>Start Date</th><th>End Date</th><th>Type</th><th>Opertation</th>
+  					</tr>	
+  					
+  					{% for row in alist %}
+  					<tr class="{{row[9]}}">
+  						<td>{{row[7]}}</td><td>{{row[1]}}</td><td>{{row[6]}}</td><td>{{row[2]}}</td><td>{{row[3]}}</td><td>{{row[5]}}</td><td><a href="new_assignment.py?cid={{ row[4] }}&option=edit&aid={{row[0]}}" role="button" class="btn btn-info btn-block ">Details</a></td>
+  					</tr>
+  					{% endfor %}
+  				</tbody>
+			</table>
+			<!-- end table -->
+		</div>
+		<footer>
+			{{ footer }}
+		</footer>
+		<!-- end page wrapper-->
+		</div>
+		<!--end wrapper-->
+		 <!-- Bootstrap Core JavaScript -->
+    <script src="http://www.neoscript.in/teacher/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="http://www.neoscript.in/teacher/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="http://www.neoscript.in/teacher/bower_components/raphael/raphael-min.js"></script>
+    <script src="http://www.neoscript.in/teacher/bower_components/morrisjs/morris.min.js"></script>
+    <script src="http://www.neoscript.in/teacher/js/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="http://www.neoscript.in/teacher/dist/js/sb-admin-2.js"></script>
+	</body>
+</html>

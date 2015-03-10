@@ -1,0 +1,1 @@
+In this course basics of programming like :<br><blockquote><ul><li>Compliling and Running C programms</li><li>Debbuging C code</li><li>Getting Familiar with C data Types</li><li>Control Flow Statements in C</li><li>Functions <br></li><li>Scope of Variables <br></li></ul></blockquote>

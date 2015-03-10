@@ -1,0 +1,102 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>Assignment</title>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://www.neoscript.in/css/bootstrap.min.css">
+		<link href="http://www.neoscript.in/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<!--navbar-->
+		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">&lt;NeoScript/&gt;</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{name}}<b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="width:30%;">
+                            <li>
+								<form action="logout.py" method="POST">
+								<button type='submit' class="btn btn-default" >Logout</button>
+								</form>
+                            </li>
+                       </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    	</nav>
+		<!--navbar end-->
+		<!-- Container-->
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="http://www.neoscript.in/teacher/new_assignment.py?cid={{cid}}&aid={{aid}}&option={{option}}">Assignmets</a></li>
+				<li class="active">Add Problems</li>
+			</ol>
+			<div class="panel-group" id="accordion">
+		     	{% for row in plist %}
+		     	<div class="panel panel-default">
+		     		<div class="panel-heading">
+		     			<strong class="panel-title" >
+		     				<p class="accordion-toggle " style="cursor:pointer;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{row[0]}}">{{row[1]}}</p>
+		     				<span class="badge ">{{row[7]}}</span>
+                           	<span class="badge">{{row[8]}}</span>
+		     			</strong>
+		     		</div>
+		     		<div id="collapseOne{{row[0]}}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          	<p><strong>Option 1: </strong> {{row[2]}}</p>
+                          	<p><strong>Option 2: </strong> {{row[3]}}</p>
+                          	<p><strong>Option 3: </strong> {{row[4]}}</p>
+                          	<p><strong>Option 4: </strong> {{row[5]}}</p>
+                          	<p><strong>Answer : </strong> {{row[6]}}</p>
+                            <hr/>
+                            <button type="button" class="btn btn-info" id="{{row[0]}}" onclick = addProblem(this.id)>Add This Problem</button>
+                        </div>
+                    </div>
+		     	</div>
+		     	{% endfor %}
+		    </div> 	     
+		</div>
+		<!-- container end-->
+		<footer>
+			{{ footer }}
+		</footer>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script>
+			function addProblem(id)
+			{
+				$.ajax({
+							type: "POST",
+							url: "ajax/add_problem.py?aid={{aid}}&pid="+id+"",
+							success: function(response)
+							{
+								alert(response);
+								//alert(response)
+								//$(".feedback_panel").hide(); 	
+								
+							},
+							error: function(response){
+								alert(response);
+						}
+						});
+			}
+		</script>
+	</body>
+</html>			

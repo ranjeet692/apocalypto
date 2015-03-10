@@ -1,0 +1,40 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+print "Cache-Control:no-store, no-cache, must-revalidate"
+print "Content-Type: text/html\n\n"
+
+from jinja2 import Template, Environment, FileSystemLoader
+from connection import cursor, db
+import cgi, cgitb,Cookie,os
+import footer
+data = cgi.FieldStorage()
+cid = data.getvalue("cid")
+title = "NeoScript | Report"
+
+if 'HTTP_COOKIE' in os.environ:
+	cookie_string=os.environ.get('HTTP_COOKIE')
+	c=Cookie.SimpleCookie()
+	c.load(cookie_string)
+
+templateLoader = FileSystemLoader( searchpath="/" )
+templateEnv = Environment( loader=templateLoader )
+if c['type'].value == "teacher":
+	sql = "SELECT email_id FROM enroll_request WHERE course_id = {0}".format(int(cid))
+	cursor.execute(sql)
+	data = cursor.fetchall()
+	l = []
+	for row in data:
+		l.append(row[0])
+		sql = "SELECT * FROM student WHERE email_id = '{0}'".format(row[0])
+	cursor.execute(sql)
+	l = cursor.fetchall()
+	
+	TEMPLATE_FILE = "/var/www/html/codemafia/teacher/enroll_request.html"
+	template = templateEnv.get_template( TEMPLATE_FILE )
+	templateVars = { "title" : title,  "cid":cid,"name":c['name'].value, "footer": footer.html,"l":tuple(l) }
+	print template.render( templateVars )
+else:
+	TEMPLATE_FILE = "/var/www/html/codemafia/redirect.html"
+	template = templateEnv.get_template( TEMPLATE_FILE )
+	print template.render(  )

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.neoscript.in/</loc>
+  <lastmod>2015-02-23T17:26:33+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.neoscript.in/index1.py</loc>
+</url>
+<url>
+  <loc>http://www.neoscript.in/about_us.html</loc>
+  <lastmod>2015-02-26T11:32:03+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.neoscript.in/acourse.py</loc>
+</url>
+<url>
+  <loc>http://www.neoscript.in/register.html</loc>
+  <lastmod>2015-02-24T09:23:19+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.neoscript.in/password_reset.html</loc>
+  <lastmod>2015-02-23T23:17:41+00:00</lastmod>
+</url>
+<url>
+  <loc>http://www.neoscript.in/course_intro.py?cid=1&amp;page=index1.py</loc>
+</url>
+<url>
+  <loc>http://www.neoscript.in/course_intro.py?cid=2&amp;page=index1.py</loc>
+</url>
+</urlset>

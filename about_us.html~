@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Index</title>
+		<meta charset="utf-8"> 
+		<meta http-equiv="Cache-Control" Content="no-cache, no-store, must-revalidate ,max-age=0,s-maxage=0, proxy revalidate">
+		<meta http-equiv ="Pragma" Content="no-cache">
+		<meta http-equiv ="Expires" Content="0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://www.neoscript.in/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://www.neoscript.in/css/front.css">
+		<link href="http://www.neoscript.in/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+		<script src="http://www.neoscript.in/js/jquery.js"></script>
+		<!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
+		<script src="http://www.neoscript.in/js/bootstrap.min.js"></script>
+	</head>
+	<body >
+		<nav class="navbar navbar-inverse navbar-fixed-top topnav" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./">&lt;NeoScript\&gt;</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index1.py">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="acourse.py">Courses</a>
+                    </li>
+                    <li>
+                        <a href="register.html">Register</a>
+                    </li>                   
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Log In <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="width:30%;">
+                            <li>
+                            <br/>
+								<form class="form-horizontal" role="form" action="index.py" method="POST">
+									<div class="form-group">
+										<div class="col-sm-13">
+											<input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email">
+										</div>
+									</div>
+									<div class="form-group">	
+										<div class="col-sm-13">
+											<input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-10">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox"> Remember me
+												</label>
+											</div>	
+										</div>	
+									</div>	
+									<div class="form-group">		
+										<div class="col-sm-offset-2 col-sm-10">
+											<button type="submit" class="btn btn-default">Sign in</button>
+											
+										</div>
+									</div>
+								</form>
+                            </li>
+                       </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <nav class="navbar navbar-inverse navbar-satic-top topnav" role="navigation">
+    </nav>
+    <div class="container">
+    	<div class=page-header>
+    		<h2 ><small>About Us</small></h2>
+    	</div>
+    	<h3 ><small>Our Mission</small></h3>
+    	<p class="lead">We want to help people learn Programming. We want to change the way programming is Learnt.We Strongly believe in learning by doing !!!!<br/>
+ By this we want to encourage students to practise and understand CODE rather than mugging it up.</p>
+ 	<div class="row">
+ 		<div class="col-md-1"></div>	
+    		<div class="col-md-9"><p class="lead"><strong>“The Value of a College Education is not the learning of many facts but the training of the mind to think.”</strong>
+</p></div>
+	<div class="col-md-2"><p align="right"> By Albert Einstien</p></div>
+	</div>
+	<p class="lead">Here at NeoScript.in you will find numerous number of problems on various topics with varying level of difficulty which you can practise at your convenience . Here we don't just encourage you to write code which can give output but we make you write code which is of High Standard. When we talk about high standard in coding we mean that your code is at par with the software engineering standards.</p>
+	<p class="lead">Also for Teacher's we are providing No Headache Labs which means you need not worry about how to conduct and evaluate the lab assignments and tests we have a one stop solution for you which will help you thoughout your course.</p>
+	<br/><br/>		
+	<p class="lead">For More Information feel free to contact us, We will be more than happy to explain you about out product.</p>	
+    		</div>
+    		<hr/>
+    	 <div class="container-fluid">
+                <center><p><span >&copy; 2015 NeoScript.in </span></p></center>
+        </div>
+
+<meta content="width=device-width,initial-scale=1.0,user-scalable=0" name="viewport">	
+	 <script src="http://www.neoscript.in/js/bootbox.min.js"></script>
+		</body>
+</html>
